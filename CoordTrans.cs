@@ -251,6 +251,17 @@ namespace gtl.CoordTrans {
             return Trans(m_dest, m_src, pt);
         }
 
+        public bool IsInBound_Trans(xPoint2d pt)
+        {
+            int iy = 0, ix = 0;
+            return m_src.FindEnclosingPTS(pt, ref iy, ref ix);            
+        }
+
+        public bool IsInBound_Transl(xPoint2d pt)
+        {
+            int iy = 0, ix = 0;
+            return m_dest.FindEnclosingPTS(pt, ref iy, ref ix);
+        }
 
         protected static xPoint2d Trans(xMeshTable src, xMeshTable dest, xPoint2d pt) {
             if ((src == null) || (dest == null))
